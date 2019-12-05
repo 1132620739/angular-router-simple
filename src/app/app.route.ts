@@ -9,7 +9,9 @@ const routes: Routes = [
   data:{animation:'heroes'}},
   {path:'router2',component:Router2Component,
   canActivate: [CanActivateGuard],
-  data:{animation:'hero'}}
+  data:{animation:'hero'}},
+  // {path:'lazy',loadChildren:'./router3/router3.module#Router3Module'}
+  {path:'lazy',loadChildren:()=>import('./router3/router3.module').then(mod=>mod.Router3Module)}
 ];
 
 @NgModule({
